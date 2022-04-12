@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,400;0,600;0,700;0,900;1,300;1,700&display=swap");
+
+$mobile: 360px;
+$tablet: 768px;
+$desktop: 1024px;
+$large: 1440px;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #2b2b2b;
+  color: #f0f0f0;
+  font-family: "Titillium Web";
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+.App-footer {
+  background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  margin-top: auto;
+}
