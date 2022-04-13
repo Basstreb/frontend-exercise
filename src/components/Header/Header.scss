@@ -11,7 +11,7 @@
       font-size: 1.6rem;
       margin-right: 1.5rem;
 
-      &:hover{
+      &:hover {
         color: #daa80d;
         cursor: pointer;
       }
@@ -22,7 +22,8 @@
     display: flex;
 
     & .Logo {
-      width: 10%;
+      width: 15%;
+      margin-top: 5px;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: -20px;
@@ -31,13 +32,18 @@
 }
 
 @media screen and (max-width: 654px) {
-  .LogoContainer {
-    display: flex;
-    & .Logo {
-      width: 25%;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: -20px;
+  .Header {
+    & .Text {
+      & .Icons {
+        &:hover {
+        }
+      }
+    }
+
+    & .LogoContainer {
+      & .Logo {
+        width: 30%;
+      }
     }
   }
 }

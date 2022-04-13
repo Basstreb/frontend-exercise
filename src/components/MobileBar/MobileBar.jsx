@@ -1,103 +1,39 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { IoPlanet } from 'react-icons/io5'
 import { FaPlaceOfWorship, FaTruck } from 'react-icons/fa';
 import { MdGroups } from 'react-icons/md'
-
 import './MobileBar.scss'
+import { Link } from 'react-router-dom';
 
-const currentPath = () => {
-    switch (window.location.pathname) {
-        case '/':
-            return 'home'
-        case '/starships':
-            return 'starships'
-        case '/people':
-            return 'people'
-        case '/vehicles':
-            return 'vehicles'
-        default:
-            break;
-    }
-}
-
-const BottomNavBar = props => {
-    const navigate = useNavigate();
-    const [activeTabs, setActiveTabs] = useState(currentPath())
+const BottomNavBar = ({ navigate, location }) => {
+    const [activeTabs, setActiveTabs] = useState(window.location.pathname.split('/')[1]);
 
     useEffect(() => {
-        switch (activeTabs) {
-            case 'home':
-                navigate('/')
-                break;
-            case 'starships':
-                navigate('/starships')
-                break;
-            case 'people':
-                navigate('/people')
-                break;
-            case 'vehicles':
-                navigate('/vehicles')
-                break;
-            default:
-                navigate('/')
-                break;
-        }
-    }, [activeTabs, navigate])
+        const curPath = window.location.pathname.split('/')[1];
+        setActiveTabs(curPath)
+    }, [location, navigate]);
 
     return (
         <div className='bottom-nav'>
             <div className='bn-tab'>
-                {activeTabs === 'home' ?
-                    <IoPlanet
-                        size='35'
-                        color='#daa80d'
-                        onClick={() => setActiveTabs('home')}
-                    /> :
-                    <IoPlanet
-                        size='35'
-                        color='#fff'
-                        onClick={() => setActiveTabs('home')}
-                    />}
+                {activeTabs === '' ?
+                    <Link to='/'><IoPlanet size='35' color='#daa80d' /></Link> :
+                    <Link to='/'><IoPlanet size='35' color='#fff' /></Link>}
             </div>
             <div className='bn-tab'>
                 {activeTabs === 'starships' ?
-                    <FaPlaceOfWorship
-                        size='35'
-                        color='#daa80d'
-                        onClick={() => setActiveTabs('starships')}
-                    /> :
-                    <FaPlaceOfWorship
-                        size='35'
-                        color='#fff'
-                        onClick={() => setActiveTabs('starships')}
-                    />}
+                    <Link to='/starships'><FaPlaceOfWorship size='35' color='#daa80d' /></Link> :
+                    <Link to='/starships'><FaPlaceOfWorship size='35' color='#fff' /></Link>}
             </div>
             <div className='bn-tab'>
                 {activeTabs === 'people' ?
-                    <MdGroups
-                        size='35'
-                        color='#daa80d'
-                        onClick={() => setActiveTabs('people')}
-                    /> :
-                    <MdGroups
-                        size='35'
-                        color='#fff'
-                        onClick={() => setActiveTabs('people')}
-                    />}
+                    <Link to='/people'><MdGroups size='35' color='#daa80d' /></Link> :
+                    <Link to='/people'><MdGroups size='35' color='#fff' /></Link>}
             </div>
             <div className='bn-tab'>
                 {activeTabs === 'vehicles' ?
-                    <FaTruck
-                        size='35'
-                        color='#daa80d'
-                        onClick={() => setActiveTabs('vehicles')}
-                    /> :
-                    <FaTruck
-                        size='35'
-                        color='#fff'
-                        onClick={() => setActiveTabs('vehicles')}
-                    />}
+                    <Link to='/vehicles'><FaTruck size='35' color='#daa80d' /></Link> :
+                    <Link to='/vehicles'><FaTruck size='35' color='#fff' /></Link>}
             </div>
         </div>
     )
