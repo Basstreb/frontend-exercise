@@ -1,6 +1,5 @@
 import { GET_PLANETS, GET_PLANETS_COUNT } from "../types/planets";
 
-
 const initialState = {
     planets: [],
     planetsCount: 0,

@@ -10,6 +10,11 @@
     & .Icons {
       font-size: 1.6rem;
       margin-right: 1.5rem;
+
+      &:hover{
+        color: #daa80d;
+        cursor: pointer;
+      }
     }
   }
 

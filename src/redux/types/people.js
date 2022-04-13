@@ -1,1 +1,2 @@
 export const GET_PEOPLE = 'GET_PEOPLE';
+export const GET_PEOPLE_COUNT = 'GET_PEOPLE_COUNT';

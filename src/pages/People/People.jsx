@@ -13,6 +13,7 @@ const Starships = () => {
     const [pageToFetch, setPageToFetch] = useState(1);
     const [filterWord, setFilterWord] = useState('');
     const people = useSelector(state => state.people.people);
+    const peopleCount = useSelector(state => state.people.peopleCount);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -35,11 +36,11 @@ const Starships = () => {
         <main className='MainContainer'>
             <h1>People</h1>
             <SearchBar setFilterWord={setFilterWord} />
-            {people.length !== 0 ? (
+            {people?.length !== 0 ? (
                 <>
                     <div className='Grid-container'>
-                        {people.results && (
-                            people.results.map((people, index) => (
+                        {people && (
+                            people?.map((people, index) => (
                                 <Cards
                                     key={index}
                                     imgFilter={starshipsImgsExporter(people.name)}
@@ -52,7 +53,7 @@ const Starships = () => {
                     <Paginator
                         pageToFetch={pageToFetch}
                         fetchPreviousPage={fetchPreviousPage}
-                        count={people.count}
+                        count={peopleCount}
                         fetchNextPage={fetchNextPage} />
                 </>
             ) : (

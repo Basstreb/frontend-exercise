@@ -13,6 +13,7 @@ const Vehicles = () => {
     const [pageToFetch, setPageToFetch] = useState(1);
     const [filterWord, setFilterWord] = useState('');
     const vehicles = useSelector(state => state.vehicles.vehicles);
+    const vehiclesCount = useSelector(state => state.vehicles.vehiclesCount);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -35,11 +36,11 @@ const Vehicles = () => {
         <main className='MainContainer'>
             <h1>Vehicles</h1>
             <SearchBar setFilterWord={setFilterWord} />
-            {vehicles.length !== 0 ? (
+            {vehicles?.length !== 0 ? (
                 <>
                     <div className='Grid-container'>
-                        {vehicles.results && (
-                            vehicles.results.map((vehicle, index) => (
+                        {vehicles && (
+                            vehicles?.map((vehicle, index) => (
                                 <Cards
                                     key={index}
                                     imgFilter={vehiclesImgsExporter(vehicle.name)}
@@ -52,7 +53,7 @@ const Vehicles = () => {
                     <Paginator
                         pageToFetch={pageToFetch}
                         fetchPreviousPage={fetchPreviousPage}
-                        count={vehicles.count}
+                        count={vehiclesCount}
                         fetchNextPage={fetchNextPage} />
                 </>
             ) : (

@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-// import default_logo from '../../assets/Star_Wars_Logo_Black.png'
 import logo_darkMode from '../../assets/Star_Wars_Logo_White.png'
 import { sideBarMenuItems } from '../../utils/menu';
 import './sidebar.scss';

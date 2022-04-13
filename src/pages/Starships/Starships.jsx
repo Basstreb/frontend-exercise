@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { getStarshipsApi, getStarshipsApiSorted, sortStarships } from '../../redux/actions/starships';
+import { getStarshipsApi, getStarshipsApiSorted } from '../../redux/actions/starships';
 import { starshipsImgsExporter } from '../../utils/imgExporter';
 import { FaSortAmountDownAlt, FaSortAmountUpAlt } from 'react-icons/fa';
 import Cards from '../../components/Cards/Cards';
@@ -60,11 +60,11 @@ const Starships = () => {
                         </button>
                     ))}
             </div>
-            {starships.length !== 0 ? (
+            {starships?.length !== 0 ? (
                 <>
                     <div className='Grid-container'>
-                        {sortedStarships.length !== 0 ? (
-                            sortedStarships.map((starship, index) => (
+                        {sortedStarships?.length !== 0 ? (
+                            sortedStarships?.map((starship, index) => (
                                 <Cards
                                     key={index}
                                     imgFilter={starshipsImgsExporter(starship.name)}
@@ -73,7 +73,7 @@ const Starships = () => {
                                     crew={starship.crew} />
                             ))
                         ) : (
-                            starships.map((starship, index) => (
+                            starships?.map((starship, index) => (
                                 <Cards
                                     key={index}
                                     imgFilter={starshipsImgsExporter(starship.name)}

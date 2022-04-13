@@ -12,13 +12,12 @@ const Planets = () => {
 
   const [pageToFetch, setPageToFetch] = useState(1);
   const [filterWord, setFilterWord] = useState('');
-  const planets = useSelector(state => state.planets.planets);
-  const planetsCount = useSelector(state => state.planets.planetsCount);
+  const planets = useSelector(state => state?.planets?.planets);
+  const planetsCount = useSelector(state => state?.planets?.planetsCount);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getPlanetsApi(1, filterWord));
-    setPageToFetch(1);
+    dispatch(getPlanetsApi(pageToFetch, filterWord));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterWord]);
 
@@ -36,11 +35,11 @@ const Planets = () => {
     <main className='MainContainer'>
       <h1>Planets</h1>
       <SearchBar setFilterWord={setFilterWord} />
-      {planets.length !== 0 ? (
+      {planets?.length !== 0 ? (
         <>
           <div className='Grid-container'>
             {planets && (
-              planets.map((planet, index) => (
+              planets?.map((planet, index) => (
                 <Cards
                   key={index}
                   imgFilter={planetsImgsExporter(planet.name)}

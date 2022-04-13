@@ -1,1 +1,2 @@
 export const GET_VEHICLES = 'GET_VEHICLES';
+export const GET_VEHICLES_COUNT = 'GET_VEHICLES_COUNT';
