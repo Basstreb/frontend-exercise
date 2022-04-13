@@ -1,0 +1,38 @@
+.Header {
+  background-color: #181818;
+
+  & .Text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.2rem;
+
+    & .Icons {
+      font-size: 1.6rem;
+      margin-right: 1.5rem;
+    }
+  }
+
+  & .LogoContainer {
+    display: flex;
+
+    & .Logo {
+      width: 10%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: -20px;
+    }
+  }
+}
+
+@media screen and (max-width: 654px) {
+  .LogoContainer {
+    display: flex;
+    & .Logo {
+      width: 25%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: -20px;
+    }
+  }
+}

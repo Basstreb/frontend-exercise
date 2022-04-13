@@ -1,31 +1,42 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-
-import { RiHomeSmile2Line, RiHomeSmile2Fill, RiUser5Fill, RiSearchEyeFill } from 'react-icons/ri'
-import { BiSearchAlt } from 'react-icons/bi'
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
-import { RiUser5Line } from 'react-icons/ri'
 import { IoPlanet } from 'react-icons/io5'
 import { FaPlaceOfWorship, FaTruck } from 'react-icons/fa';
 import { MdGroups } from 'react-icons/md'
 
 import './MobileBar.scss'
 
+const currentPath = () => {
+    switch (window.location.pathname) {
+        case '/':
+            return 'home'
+        case '/starships':
+            return 'starships'
+        case '/people':
+            return 'people'
+        case '/vehicles':
+            return 'vehicles'
+        default:
+            break;
+    }
+}
+
 const BottomNavBar = props => {
-    const navigate = useNavigate()
-    const [activeTabs, setActiveTabs] = useState(props.name)
+    const navigate = useNavigate();
+    const [activeTabs, setActiveTabs] = useState(currentPath())
+
     useEffect(() => {
         switch (activeTabs) {
             case 'home':
                 navigate('/')
                 break;
-            case 'search':
+            case 'starships':
                 navigate('/starships')
                 break;
-            case 'favourites':
+            case 'people':
                 navigate('/people')
                 break;
-            case 'account':
+            case 'vehicles':
                 navigate('/vehicles')
                 break;
             default:
@@ -50,42 +61,42 @@ const BottomNavBar = props => {
                     />}
             </div>
             <div className='bn-tab'>
-                {activeTabs === 'search' ?
+                {activeTabs === 'starships' ?
                     <FaPlaceOfWorship
                         size='35'
                         color='#daa80d'
-                        onClick={() => setActiveTabs('search')}
+                        onClick={() => setActiveTabs('starships')}
                     /> :
                     <FaPlaceOfWorship
                         size='35'
                         color='#fff'
-                        onClick={() => setActiveTabs('search')}
+                        onClick={() => setActiveTabs('starships')}
                     />}
             </div>
             <div className='bn-tab'>
-                {activeTabs === 'favourites' ?
+                {activeTabs === 'people' ?
                     <MdGroups
                         size='35'
                         color='#daa80d'
-                        onClick={() => setActiveTabs('favourites')}
+                        onClick={() => setActiveTabs('people')}
                     /> :
                     <MdGroups
                         size='35'
                         color='#fff'
-                        onClick={() => setActiveTabs('favourites')}
+                        onClick={() => setActiveTabs('people')}
                     />}
             </div>
             <div className='bn-tab'>
-                {activeTabs === 'account' ?
+                {activeTabs === 'vehicles' ?
                     <FaTruck
                         size='35'
                         color='#daa80d'
-                        onClick={() => setActiveTabs('account')}
+                        onClick={() => setActiveTabs('vehicles')}
                     /> :
                     <FaTruck
                         size='35'
                         color='#fff'
-                        onClick={() => setActiveTabs('account')}
+                        onClick={() => setActiveTabs('vehicles')}
                     />}
             </div>
         </div>

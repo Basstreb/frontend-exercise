@@ -1,0 +1,27 @@
+.Card {
+  border: 2px solid #fff;
+  max-width: 300px;
+  min-width: 300px;
+  margin-bottom: 20px;
+  flex: 0 0 auto;
+  border-radius: 15px;
+
+  & .CardImg {
+    width: 100%;
+    object-fit: contain;
+    height: 300px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+
+  & .DescriptionContainer {
+    padding: 10px 20px;
+  }
+}
+
+@media screen and (max-width: 654px) {
+  .Card {
+    max-width: 360px;
+    min-width: 360px;
+  }
+}
